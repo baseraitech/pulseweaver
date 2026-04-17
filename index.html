@@ -1,0 +1,334 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pulse Weaver | Neon Ritm Oyunu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- Pulse Animation Background -->
+    <div class="pulse-bg"></div>
+    
+    <header class="hero">
+        <nav class="nav">
+            <div class="nav-links">
+                <a href="#howtoplay" data-i18n="navHowToPlay">Nasıl Oynanır</a>
+                <a href="#about">Hakkında</a>
+                <a href="#features">Özellikler</a>
+                <a href="#pp">Gizlilik</a>
+                <a href="#tou">Kullanım</a>
+                <a href="#contact">İletişim</a>
+            </div>
+            <div class="lang-switch">
+                <button data-lang-button="tr" class="lang active">TR</button>
+                <button data-lang-button="en" class="lang">EN</button>
+            </div>
+            <button class="cta play-store-btn" id="playStoreBtn">Play Store</button>
+        </nav>
+        
+        <div class="hero-wrapper">
+            <div class="hero-content">
+                <p class="eyebrow" data-i18n="heroEyebrow">Tek parmakla neon ritmi</p>
+                <h1>Pulse Weaver</h1>
+                <p data-i18n="heroDescription">
+                    Düşen "pulse" halkalarını orbunla yakala, renkleri eşleştir ve combo'ları büyüt. Her basit dokunuş, bir sonraki faza geçişin ritmini kurar.
+                </p>
+                <div class="hero-actions">
+                    <button class="primary">Beta APK İndir</button>
+                    <button class="ghost" data-i18n="demoStore">Demo Mağazası</button>
+                </div>
+                <p class="stats" data-i18n="statsText">Min SDK 24 · Compose + Kotlin · No Ads · 30MB</p>
+            </div>
+            
+            <!-- Floating Logo -->
+            <div class="floating-logo">
+                <img src="animated-logo.svg" alt="Pulse Weaver Logo" class="logo-glow" />
+            </div>
+        </div>
+        
+        <!-- Coming Soon Modal -->
+        <div id="comingSoonModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modalTitle">Yakında Geliyor!</h2>
+                <p id="modalMessage">Bu özellik yakında kullanılabilir olacaktır. Lütfen daha sonra tekrar kontrol edin.</p>
+                <button id="modalClose" class="primary">Tamam</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="howtoplay" class="card">
+            <h2 data-i18n="howToPlayTitle">Nasıl Oynanır?</h2>
+            <div class="howtoplay-grid">
+                <div class="howtoplay-block">
+                    <h3 data-i18n="howToPlayGameplayTitle">Oynanış</h3>
+                    <ul>
+                        <li data-i18n="htp1">Ekranda renkli toplar yukarıdan aşağıya düşer.</li>
+                        <li data-i18n="htp2">Alttaki renk düğmelerine basarak yakalayıcının rengini değiştir.</li>
+                        <li data-i18n="htp3">Yakalayıcıyı parmağınla sürükleyerek hareket ettir.</li>
+                        <li data-i18n="htp4">Sadece aynı renkteki toplar puan getirir.</li>
+                        <li data-i18n="htp5">Yanlış renk veya kaçırılan top can kaybettirir.</li>
+                        <li data-i18n="htp6">4 can bitince oyun sona erer.</li>
+                    </ul>
+                </div>
+                <div class="howtoplay-block">
+                    <h3 data-i18n="howToPlayScoringTitle">Puan Sistemi</h3>
+                    <ul>
+                        <li data-i18n="htp7">Her doğru yakalama <strong>10 puan</strong> kazandırır.</li>
+                        <li data-i18n="htp8">Üst üste yakaladıkça kombo bonusu artar: her yakalamada <strong>+4 puan</strong> eklenir.</li>
+                        <li data-i18n="htp9">Örneğin 5. komboda: 10 + 20 = <strong>30 puan</strong>.</li>
+                        <li data-i18n="htp10">Yanlış yakalama veya kaçırma komboyu sıfırlar.</li>
+                        <li data-i18n="htp11">Oyun ilerledikçe toplar daha hızlı düşer.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="card">
+            <h2 data-i18n="aboutTitle">Hakkında</h2>
+            <p data-i18n="aboutText">
+                Pulse Weaver, Jetpack Compose ile sıfırdan yazılmış, gradient neon görselleri ve hassas gestürlerle şekillenen ritim hayatta kalma oyunudur. Oyuncular, bir orb’u ekran boyunca sürükleyerek düşen pulse halkalarıyla çarpışır, renk padleri ile eşleştirir ve faz ilerledikçe artan tempo karşısında reflekslerini sınar.
+            </p>
+        </section>
+
+        <section id="features" class="card grid">
+            <h2 data-i18n="featuresTitle">Özellikler</h2>
+            <article>
+                <h3 data-i18n="feature1Title">Neon estetik</h3>
+                <p data-i18n="feature1Body">Gradient stroke’lar, radial ışıklar ve yumuşak overlay’ler tek tek sahnelenir; dışarıdan ekstra sanat bağımlılığı gerektirmez.</p>
+            </article>
+            <article>
+                <h3 data-i18n="feature2Title">Adaptif tempo</h3>
+                <p data-i18n="feature2Body">Skor arttıkça pulse spawn aralığı azalır. Combo’da kaldıkça zorluk kademelendirilir, böylece her run özgün olur.</p>
+            </article>
+            <article>
+                <h3 data-i18n="feature3Title">Kullanıcı dostu kontroller</h3>
+                <p data-i18n="feature3Body">Tek parmak sürükleme ve alt kısımda üç renk pad’i; renk eşleşmesi yapmadan önce hızlı seçim yapılabilir.</p>
+            </article>
+            <article>
+                <h3 data-i18n="feature4Title">Ölçeklenebilir yapı</h3>
+                <p data-i18n="feature4Body">Compose + Kotlin ile inşa edilen kod tabanı kolayca test edilebilir, modüle edilebilir ve ileride yeni fazlar eklemeye uygundur.</p>
+            </article>
+        </section>p">
+            <h2 data-i18n="privacyTitle"
+        <section class="card" id="privacy">
+            <h2>Gizlilik Politikası</h2>
+            <p data-i18n="privacyParagraph1">
+                Pulse Weaver, hiçbir kişisel veri toplamaz. Oyuncuya ait bilgiler hiçbir sunucuya gönderilmez, reklam takip mekanizması içermez ve uygulama içi satın alma barındırmaz. Google Play istemci kimliği, sadece Play Store yayını için gerekli olduğu zaman kullanılır. Çerez veya üçüncü taraf SDK’ları bulunmamaktadır.
+            </p>
+            <p data-i18n="privacyParagraph2">
+                Uygulamanın çalışması için kullanıcıdan yalnızca cihazın dokunmatik ekranını kullanması istenir; diğer izin talepleri yoktur. Herhangi bir veri sızıntısı durumunda bu sayfada güncelleme yapılacak ve <a href="mailto:baseraitech@gmail.com">baseraitech@gmail.com</a> adresine bilgi verilecektir.
+            </p>
+        </section>
+ou">
+            <h2 data-i18n="termsTitle"n class="card" id="terms">
+            <h2>Kullanım Şartları</h2>
+            <ul>
+                <li data-i18n="terms1">Pulse Weaver sadece eğlence amaçlı sağlanır; güvenlik ya da tıbbi tavsiye vermez.</li>
+                <li data-i18n="terms2">Oyuncular, üçüncü taraf mod veya hile kullanımından doğacak hesap kısıtlamalarını kabul eder.</li>
+                <li data-i18n="terms3">Uygulamanın tüm fikri mülkiyeti Pulse Weaver ekibine aittir; redistribusyon ve yeniden paketleme açıkça yasaktır.</li>
+                <li data-i18n="terms4">Bu şartlar, güncel oyun sürümüyle birlikte güncellenebilir. Değişiklikler bu sayfada yayınlandığında yürürlüğe girer.</li>
+            </ul>
+        </section>
+
+        <section class="card contact" id="contact">
+            <h2 data-i18n="contactTitle">İletişim</h2>
+            <p data-i18n="contactText">
+                Pulse Weaver hakkında her türlü soru, iş birliği talebi veya teknik geri bildirim için <a href="mailto:baseraitech@gmail.com">baseraitech@gmail.com</a> adresine yazabilirsiniz.
+            </p>
+            <div class="contact-details">
+                <div>
+                    <strong>Mail</strong>
+                    <p>baseraitech@gmail.com</p>
+                </div>
+                <div>
+                    <strong>Şirket</strong>
+                    <p>Baseraitech</p>
+                </div>
+                <div>
+                    <strong>Lokasyon</strong>
+                    <p>Türkiye · Remote</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Pulse Weaver · Minimal neon ritim oyunu</p>
+    </footer>
+    <script>
+        const translations = {
+            tr: {
+                navHowToPlay: 'Nasıl Oynanır',
+                howToPlayTitle: 'Nasıl Oynanır?',
+                howToPlayGameplayTitle: 'Oynanış',
+                howToPlayScoringTitle: 'Puan Sistemi',
+                htp1: 'Ekranda renkli toplar yukarıdan aşağıya düşer.',
+                htp2: 'Alttaki renk düğmelerine basarak yakalayıcının rengini değiştir.',
+                htp3: 'Yakalayıcıyı parmağınla sürükleyerek hareket ettir.',
+                htp4: 'Sadece aynı renkteki toplar puan getirir.',
+                htp5: 'Yanlış renk veya kaçırılan top can kaybettirir.',
+                htp6: '4 can bitince oyun sona erer.',
+                htp7: 'Her doğru yakalama 10 puan kazandırır.',
+                htp8: 'Üst üste yakaladıkça kombo bonusu artar: her yakalamada +4 puan eklenir.',
+                htp9: 'Örneğin 5. komboda: 10 + 20 = 30 puan.',
+                htp10: 'Yanlış yakalama veya kaçırma komboyu sıfırlar.',
+                htp11: 'Oyun ilerledikçe toplar daha hızlı düşer.',
+                heroEyebrow: 'Tek parmakla neon ritmi',
+                heroDescription: 'Düşen "pulse" halkalarını orbunla yakala, renkleri eşleştir ve combo’ları büyüt. Her basit dokunuş, bir sonraki faza geçişin ritmini kurar.',
+                statsText: 'Min SDK 24 · Compose + Kotlin · No Ads · 30MB',
+                aboutText: 'Pulse Weaver, Jetpack Compose ile sıfırdan yazılmış, gradient neon görselleri ve hassas gestürlerle şekillenen ritim hayatta kalma oyunudur. Oyuncular, bir orb’u ekran boyunca sürükleyerek düşen pulse halkalarıyla çarpışır, renk padleri ile eşleştirir ve faz ilerledikçe artan tempo karşısında reflekslerini sınar.',
+                feature1Title: 'Neon estetik',
+                feature1Body: 'Gradient stroke’lar, radial ışıklar ve yumuşak overlay’ler tek tek sahnelenir; dışarıdan ekstra sanat bağımlılığı gerektirmez.',
+                feature2Title: 'Adaptif tempo',
+                feature2Body: 'Skor arttıkça pulse spawn aralığı azalır. Combo’da kaldıkça zorluk kademelendirilir, böylece her run özgün olur.',
+                feature3Title: 'Kullanıcı dostu kontroller',
+                feature3Body: 'Tek parmak sürükleme ve alt kısımda üç renk pad’i; renk eşleşmesi yapmadan önce hızlı seçim yapılabilir.',
+                feature4Title: 'Ölçeklenebilir yapı',
+                feature4Body: 'Compose + Kotlin ile inşa edilen kod tabanı kolayca test edilebilir, modüle edilebilir ve ileride yeni fazlar eklemeye uygundur.',
+                privacyParagraph1: 'Pulse Weaver, hiçbir kişisel veri toplamaz. Oyuncuya ait bilgiler hiçbir sunucuya gönderilmez, reklam takip mekanizması içermez ve uygulama içi satın alma barındırmaz. Google Play istemci kimliği, sadece Play Store yayını için gerekli olduğu zaman kullanılır. Çerez veya üçüncü taraf SDK’ları bulunmamaktadır.',
+                privacyParagraph2: 'Uygulamanın çalışması için kullanıcıdan yalnızca cihazın dokunmatik ekranını kullanması istenir; diğer izin talepleri yoktur. Herhangi bir veri sızıntısı durumunda bu sayfada güncelleme yapılacak ve baseraitech@gmail.com adresine bilgi verilecektir.',                privacyTitle: 'Gizlilik Politikası',
+                termsTitle: 'Kullanım Şartları',                terms1: 'Pulse Weaver sadece eğlence amaçlı sağlanır; güvenlik ya da tıbbi tavsiye vermez.',
+                terms2: 'Oyuncular, üçüncü taraf mod veya hile kullanımından doğacak hesap kısıtlamalarını kabul eder.',
+                terms3: 'Uygulamanın tüm fikri mülkiyeti Pulse Weaver ekibine aittir; redistribusyon ve yeniden paketleme açıkça yasaktır.',
+                terms4: 'Bu şartlar, güncel oyun sürümüyle birlikte güncellenebilir. Değişiklikler bu sayfada yayınlandığında yürürlüğe girer.',
+                contactText: 'Pulse Weaver hakkında her türlü soru, iş birliği talebi veya teknik geri bildirim için baseraitech@gmail.com adresine yazabilirsiniz.',
+                demoStore: 'Demo Mağazası',
+                aboutTitle: 'Hakkında',
+                featuresTitle: 'Özellikler',
+                contactTitle: 'İletişim'
+            },
+            en: {
+                navHowToPlay: 'How to Play',
+                howToPlayTitle: 'How to Play?',
+                howToPlayGameplayTitle: 'Gameplay',
+                howToPlayScoringTitle: 'Scoring',
+                htp1: 'Colored balls fall from the top of the screen.',
+                htp2: 'Tap the color buttons at the bottom to switch your catcher color.',
+                htp3: 'Drag the catcher with your finger to move it.',
+                htp4: 'Only matching color balls score points.',
+                htp5: 'Wrong color or missed ball costs a life.',
+                htp6: 'Game ends when all 4 lives are lost.',
+                htp7: 'Each correct catch earns 10 points.',
+                htp8: 'Consecutive catches build a combo and add +4 bonus points per catch.',
+                htp9: 'Example: 5th combo = 10 + 20 = 30 points.',
+                htp10: 'A wrong catch or miss resets your combo.',
+                htp11: 'As the game progresses, balls fall faster.',
+                heroEyebrow: 'Single-thumb neon rhythm',
+                heroDescription: 'Catch falling “pulse” rings with the orb, align the colors, and stretch your combos to the next phase.',
+                statsText: 'Min SDK 24 · Compose + Kotlin · No Ads · 30MB',
+                aboutText: 'Pulse Weaver is a Jetpack Compose native rhythm-survival game that pairs gradient neon visuals with precise gesture steering. Drag the orb through falling pulses, tap a color pad, and stay ahead of the escalating tempo.',
+                feature1Title: 'Neon aesthetic',
+                feature1Body: 'Gradient strokes, radial glows, and soft overlays render without requiring external art assets.',
+                feature2Title: 'Adaptive tempo',
+                feature2Body: 'As score climbs, pulse spawn intervals shrink and combos keep the challenge shifting.',
+                feature3Title: 'One-thumb controls',
+                feature3Body: 'Drag the orb with a single thumb and tap the color pads at the bottom to shift hues before impact.',
+                feature4Title: 'Composable architecture',
+                feature4Body: 'Built with Compose + Kotlin so the codebase stays testable, modular, and ready for future phases.',
+                privacyParagraph1: 'Pulse Weaver collects no personal data, runs no ads, and includes no third-party trackers. Scoring happens entirely locally and no permissions beyond touch input are requested.',
+                privacyParagraph2: 'If any data incident ever occurs, this page will be updated and baseraitech@gmail.com will be notified.',
+                privacyTitle: 'Privacy Policy',
+                termsTitle: 'Terms of Use',
+                terms1: 'Pulse Weaver is provided for entertainment only; it does not replace medical, legal, or safety advice.',
+                terms2: 'Players accept that modding or hacking may lead to restrictions and potential loss of progress.',
+                terms3: 'All intellectual property belongs to the Pulse Weaver team; redistribution or repackaging without consent is prohibited.',
+                terms4: 'These terms might update alongside the game; once published here they take effect immediately.',
+                contactText: 'Reach out to baseraitech@gmail.com for questions, collaborations, or technical feedback on Pulse Weaver.',
+                demoStore: 'Demo Store',
+                aboutTitle: 'About',
+                featuresTitle: 'Features',
+                contactTitle: 'Contact'
+            }
+        };
+
+        const buttons = document.querySelectorAll('[data-lang-button]');
+        const setLanguage = (lang) => {
+            document.querySelectorAll('[data-i18n]').forEach((el) => {
+                const key = el.dataset.i18n;
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerText = translations[lang][key];
+                }
+            });
+            buttons.forEach((button) => {
+                button.classList.toggle('active', button.dataset.langButton === lang);
+            });
+        };
+
+        buttons.forEach((button) => {
+            button.addEventListener('click', () => setLanguage(button.dataset.langButton));
+        });
+
+        setLanguage('tr');
+
+        // Pulse Background Animation
+        const pulseContainer = document.querySelector('.pulse-bg');
+        const pulseColors = [
+            'rgba(79, 209, 197, 0.7)',   // Cyan
+            'rgba(255, 209, 102, 0.7)',  // Yellow
+            'rgba(255, 100, 200, 0.7)',  // Pink
+            'rgba(100, 200, 255, 0.7)',  // Blue
+        ];
+
+        function createPulse() {
+            const pulse = document.createElement('div');
+            pulse.classList.add('pulse-item');
+            
+            const size = Math.random() * 40 + 20; // 20-60px
+            const left = Math.random() * 100;
+            const duration = Math.random() * 2 + 3; // 3-5s
+            const color = pulseColors[Math.floor(Math.random() * pulseColors.length)];
+            
+            pulse.style.width = size + 'px';
+            pulse.style.height = size + 'px';
+            pulse.style.left = left + '%';
+            pulse.style.borderColor = color;
+            pulse.style.animationDuration = duration + 's';
+            pulse.style.animationDelay = (Math.random() * 2) + 's';
+            
+            pulseContainer.appendChild(pulse);
+            
+            setTimeout(() => pulse.remove(), (duration + 2) * 1000);
+        }
+
+        // Create pulses periodically
+        setInterval(createPulse, 600);
+
+        // Modal handling
+        const modal = document.getElementById('comingSoonModal');
+        const playStoreBtn = document.getElementById('playStoreBtn');
+        const closeBtn = document.querySelector('.close');
+        const modalCloseBtn = document.getElementById('modalClose');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalMessage = document.getElementById('modalMessage');
+
+        playStoreBtn.addEventListener('click', () => {
+            const isEnglish = document.querySelector('[data-lang-button="en"]').classList.contains('active');
+            modalTitle.textContent = isEnglish ? 'Coming Soon!' : 'Yakında Geliyor!';
+            modalMessage.textContent = isEnglish 
+                ? 'This feature will be available soon. Please check back later.' 
+                : 'Bu özellik yakında kullanılabilir olacaktır. Lütfen daha sonra tekrar kontrol edin.';
+            modal.classList.add('active');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        modalCloseBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
