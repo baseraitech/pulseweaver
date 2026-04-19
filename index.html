@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8" />
@@ -27,7 +27,7 @@
                 <button data-lang-button="tr" class="lang active">TR</button>
                 <button data-lang-button="en" class="lang">EN</button>
             </div>
-            <button class="cta play-store-btn" id="playStoreBtn">Play Store</button>
+            <a href="https://play.google.com/apps/testing/com.baser.pulseweaver" target="_blank" class="cta play-store-btn" id="playStoreBtn">Play Store</a>
         </nav>
         
         <div class="hero-wrapper">
@@ -38,7 +38,7 @@
                     Düşen "pulse" halkalarını orbunla yakala, renkleri eşleştir ve combo'ları büyüt. Her basit dokunuş, bir sonraki faza geçişin ritmini kurar.
                 </p>
                 <div class="hero-actions">
-                    <button class="primary">Beta APK İndir</button>
+                    <a href="https://play.google.com/apps/testing/com.baser.pulseweaver" target="_blank" class="primary">Beta APK İndir</a>
                     <button class="ghost" data-i18n="demoStore">Demo Mağazası</button>
                 </div>
                 <p class="stats" data-i18n="statsText">Min SDK 24 · Compose + Kotlin · No Ads · 30MB</p>
@@ -307,14 +307,7 @@ ou">
         const modalTitle = document.getElementById('modalTitle');
         const modalMessage = document.getElementById('modalMessage');
 
-        playStoreBtn.addEventListener('click', () => {
-            const isEnglish = document.querySelector('[data-lang-button="en"]').classList.contains('active');
-            modalTitle.textContent = isEnglish ? 'Coming Soon!' : 'Yakında Geliyor!';
-            modalMessage.textContent = isEnglish 
-                ? 'This feature will be available soon. Please check back later.' 
-                : 'Bu özellik yakında kullanılabilir olacaktır. Lütfen daha sonra tekrar kontrol edin.';
-            modal.classList.add('active');
-        });
+        /* Play Store linki artik doğrudan a tagi ile yonlendiriliyor */
 
         closeBtn.addEventListener('click', () => {
             modal.classList.remove('active');
